@@ -4,7 +4,7 @@ from unittest import TestCase, main
 
 
 class TestSolution(TestCase):
-    def test_one_plus_two(self):
+    def test_solution(self):
         self.assertEqual(solution("KAKAO"), [11, 1, 27, 15])
         self.assertEqual(solution("TOBEORNOTTOBEORTOBEORNOT"), [20, 15, 2, 5, 15, 18, 14, 15, 20, 27, 29, 31, 36, 30, 32, 34])
 
