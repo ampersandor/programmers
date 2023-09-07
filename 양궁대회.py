@@ -1,9 +1,8 @@
 def backtracking(cur, n, apache_board, lion_board, apache, lion, answer):
-    if n == 0 and lion > apache:
-        diff = lion - apache
-        if diff > answer[0] or (diff == answer[0] and lion_board[::-1] > answer[1][::-1]):
-            answer[0] = diff
-            answer[1] = lion_board[:]
+    diff = lion - apache
+    if n == 0 and diff > 0 and (diff > answer[0] or (diff == answer[0] and lion_board[::-1] > answer[1][::-1])):
+        answer[0] = diff
+        answer[1] = lion_board[:]
         return
     for i in range(cur, len(apache_board)):
         if n > apache_board[i]:
@@ -26,7 +25,7 @@ def solution(n, info):
     lion_board = [0] * len(info)
     apache = sum(map(lambda i: (10 - i) if info[i] > 0 else 0, range(11)))
     backtracking(0, n, info, lion_board, apache, 0, answer)
-    
+
     return answer[1]
 
 
